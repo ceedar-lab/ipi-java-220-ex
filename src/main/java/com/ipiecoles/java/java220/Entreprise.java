@@ -6,12 +6,19 @@ import org.joda.time.LocalDate;
  * Crée par c.daroit le 07/10/2020
  */
 public class Entreprise {
+    /** Attributs **/
     public static final Double SALAIRE_BASE = 1480.27;
     public static final Integer NB_CONGES_BASE = 25;
     public static final Double INDICE_MANAGER = 1.3;
     public static final Double PRIME_MANAGER_PAR_TECHNICIEN = 250.0;
     public static final Double PRIME_ANCIENNETE = 100.0;
 
+    /** Getters / Setters **/
+    public static Integer getNbCongesBase() {
+        return NB_CONGES_BASE;
+    }
+
+    /** Méthodes **/
     public static Double primeAnnuelleBase() {
          return LocalDate.now().getYear() / 2d;
     }
