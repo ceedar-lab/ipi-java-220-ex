@@ -24,11 +24,10 @@ public class Employe {
     public String getMatricule() { return matricule; }
 
     public void setDateEmbauche(LocalDate dateEmbauche) throws Exception {
-        if (LocalDate.now().compareTo(dateEmbauche) < 0) {
+        if (dateEmbauche != null && dateEmbauche.isAfter(LocalDate.now())) {
             throw new Exception("La date d'embauche ne peut être postérieure à la date courante");
-        } else {
-            this.dateEmbauche = dateEmbauche;
         }
+        this.dateEmbauche = dateEmbauche;
     }
     public LocalDate getDateEmbauche() { return dateEmbauche; }
 
@@ -48,10 +47,15 @@ public class Employe {
 
     /** Méthodes **/
     public final Integer getNombreAnneeAnciennete() {
-        return (int)(LocalDate.now().getYear() - dateEmbauche.getYear());
+        return LocalDate.now().getYear() - dateEmbauche.getYear();
     }
 
     public Integer getNbConges() {
-        return Entreprise.getNbCongesBase();
+        return Entreprise.NB_CONGES_BASE;
+    }
+
+    public String toString() {
+        String str = "Employe{nom='"+getNom()+"', prenom='"+getPrenom()+"', matricule='"+getMatricule()+"', dateEmbauche="+getDateEmbauche()+", salaire="+getSalaire()+"}";
+        return str;
     }
 }

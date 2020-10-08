@@ -14,9 +14,6 @@ public class Entreprise {
     public static final Double PRIME_ANCIENNETE = 100.0;
 
     /** Getters / Setters **/
-    public static Integer getNbCongesBase() {
-        return NB_CONGES_BASE;
-    }
 
     /** Méthodes **/
     public static Double primeAnnuelleBase() {
